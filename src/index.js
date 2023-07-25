@@ -107,7 +107,7 @@ async function onSumbitLoadMore(event) {
             top: cardHeight * 2,
             behavior: "smooth",
         });
-        const lightbox = new SimpleLightbox('.gallery a');
+        //const lightbox = new SimpleLightbox('.gallery a');
         lightbox.refresh();
 
     } catch (error) {
