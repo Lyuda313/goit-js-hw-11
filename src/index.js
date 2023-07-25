@@ -1,9 +1,11 @@
-// import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { RequestServer } from './requestServer';
 import { markup } from './markup';
 import { LoadMoreButton } from './loadMoreButton';
+
+const lightbox = new SimpleLightbox('.gallery a');
 
 const refs = {
     form: document.querySelector('#search-form'),
@@ -55,10 +57,8 @@ async function onSumbitForm(event) {
         refs.gallery.insertAdjacentHTML("beforeend", markup(hits));
         refs.searchButton.disabled = false;
 
-        // const lightbox = new SimpleLightbox('.gallery a');
-        // lightbox.refresh();
-
-        lightbox.refresh()
+        
+        lightbox.refresh();
 
         if (totalHits <= 40) {
             onloadMoreButton.buttonState({
